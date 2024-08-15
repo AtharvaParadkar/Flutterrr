@@ -5,6 +5,7 @@ import 'package:flutter_application/widgets/checkbox.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
 import 'package:flutter_application/widgets/listview.dart';
+import 'package:flutter_application/widgets/radio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -82,6 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Checkbox',
             'Checkbox Button',
             () => _navigation(context, const CheckboxButton()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Radio',
+            'Radio Button',
+            () => _navigation(context, const RadioButton()),
           ),
         ],
       ),
