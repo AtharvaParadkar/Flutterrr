@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/gymui.dart';
+import 'package:flutter_application/widgets/animation.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/checkbox.dart';
 import 'package:flutter_application/widgets/grid.dart';
@@ -90,6 +91,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Radio',
             'Radio Button',
             () => _navigation(context, const RadioButton()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Animation',
+            'Animation Widgets',
+            () => _navigation(context, const AnimationWidget()),
           ),
         ],
       ),
