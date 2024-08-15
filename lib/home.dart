@@ -6,6 +6,7 @@ import 'package:flutter_application/gymui.dart';
 import 'package:flutter_application/widgets/animation/animation.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/checkbox.dart';
+import 'package:flutter_application/widgets/drawer.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
 import 'package:flutter_application/widgets/listview.dart';
@@ -117,6 +118,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Progress Bar',
             'Progress Bar Indicator',
             () => _navigation(context, const ProgressBar()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Drawer',
+            'Drawer',
+            () => _navigation(context, const MyDrawer()),
           ),
         ],
       ),
