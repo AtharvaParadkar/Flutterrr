@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myappbar('Flutterrr'),
+      drawer: MyDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -119,13 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Progress Bar Indicator',
             () => _navigation(context, const ProgressBar()),
           ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Drawer',
-            'Drawer',
-            () => _navigation(context, const MyDrawer()),
-          ),
+          // const SizedBox(height: 10),
+          // listtilewidget(
+          //   context,
+          //   'Drawer',
+          //   'Drawer',
+          //   () => _navigation(context, const MyDrawer()),
+          // ),
         ],
       ),
     );
