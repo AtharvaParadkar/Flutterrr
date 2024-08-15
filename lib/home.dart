@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
+import 'package:flutter_application/widgets/listview.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -58,6 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Toast',
             'Press for Toast',
             toastfunction,
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'ListView',
+            'List View using Modal Class',
+            () => _navigation(context, const ListviewModal()),
           ),
         ],
       ),
