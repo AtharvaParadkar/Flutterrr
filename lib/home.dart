@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/gymui.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
@@ -66,6 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'ListView',
             'List View using Modal Class',
             () => _navigation(context, const ListviewModal()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'GymUI',
+            'Gym checkout ui',
+            () => _navigation(context, const GymUI()),
           ),
         ],
       ),
