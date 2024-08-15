@@ -10,7 +10,16 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+void _navigation(BuildContext context, Widget navpage) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => navpage),
+  );
+}
+
+
 class _MyHomePageState extends State<MyHomePage> {
+  
   
   @override
   Widget build(BuildContext context) {
@@ -19,83 +28,60 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: 60,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 0, 0, 255),
-                      Color.fromARGB(130, 0, 0, 255),
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                ),
-                child: ListTile(
-                  title: Text(
-                    'List',
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                  subtitle: Text(
-                    'List View',
-                    style: const TextStyle(fontSize: 15),
-                  ),
-                  textColor: Colors.white,
-                  // tileColor: const Color.fromARGB(255, 0, 0, 255),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => ListViewWidget()),
-                  ),
-                ),
-              ),
-            ),
+          listtilewidget(
+            context,
+            'List',
+            'List View',
+            () => _navigation(context, ListViewWidget()),
           ),
           const SizedBox(height: 10),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: 60,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 0, 0, 255),
-                      Color.fromARGB(130, 0, 0, 255),
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                ),
-                child: ListTile(
-                  title: Text(
-                    'Grid',
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                  subtitle: Text(
-                    'Grid View',
-                    style: const TextStyle(fontSize: 15),
-                  ),
-                  textColor: Colors.white,
-                  // tileColor: const Color.fromARGB(255, 0, 0, 255),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => GridViewWidget()),
-                  ),
-                ),
-              ),
-            ),
+          listtilewidget(
+            context,
+            'Grid',
+            'Grid View',
+            () => _navigation(context, const GridViewWidget()),
           ),
         ],
       ),
     );
   }
+}
+
+Widget listtilewidget(
+    BuildContext context, String text, String subtext, VoidCallback ontap) {
+  return SizedBox(
+    width: MediaQuery.of(context).size.width,
+    height: 60,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 0, 0, 255),
+              Color.fromARGB(130, 0, 0, 255),
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+        ),
+        child: ListTile(
+          title: Text(
+            text,
+            style: const TextStyle(fontSize: 20),
+          ),
+          subtitle: Text(
+            subtext,
+            style: const TextStyle(fontSize: 15),
+          ),
+          textColor: Colors.white,
+          // tileColor: const Color.fromARGB(255, 0, 0, 255),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          onTap: ontap,
+        ),
+      ),
+    ),
+  );
 }
