@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/animation/animated.dart';
+import 'package:flutter_application/widgets/animation/animated.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 
 class PageRouteAnimation extends StatelessWidget {
