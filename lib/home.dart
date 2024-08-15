@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/gymui.dart';
 import 'package:flutter_application/widgets/appbar.dart';
+import 'package:flutter_application/widgets/checkbox.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
 import 'package:flutter_application/widgets/listview.dart';
@@ -74,6 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'GymUI',
             'Gym checkout ui',
             () => _navigation(context, const GymUI()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Checkbox',
+            'Checkbox Button',
+            () => _navigation(context, const CheckboxButton()),
           ),
         ],
       ),
