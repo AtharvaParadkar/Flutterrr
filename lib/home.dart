@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/animation/pagerouteanimation.dart';
 import 'package:flutter_application/gymui.dart';
-import 'package:flutter_application/widgets/animation.dart';
+import 'package:flutter_application/animation/animation.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/checkbox.dart';
 import 'package:flutter_application/widgets/grid.dart';
@@ -98,6 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Animation',
             'Animation Widgets',
             () => _navigation(context, const AnimationWidget()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Page Animation',
+            'Page Route Animation ',
+            () => _navigation(context, const PageRouteAnimation()),
           ),
         ],
       ),
