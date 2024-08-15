@@ -1,14 +1,15 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application/animation/pagerouteanimation.dart';
+import 'package:flutter_application/widgets/animation/pagerouteanimation.dart';
 import 'package:flutter_application/gymui.dart';
-import 'package:flutter_application/animation/animation.dart';
+import 'package:flutter_application/widgets/animation/animation.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/checkbox.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
 import 'package:flutter_application/widgets/listview.dart';
+import 'package:flutter_application/widgets/progressbar.dart';
 import 'package:flutter_application/widgets/radio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -110,6 +111,13 @@ class _MyHomePageState extends State<MyHomePage> {
           //   'Page Route Animation ',
           //   () => _navigation(context, const PageRouteAnimation()),
           // ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Progress Bar',
+            'Progress Bar Indicator',
+            () => _navigation(context, const ProgressBar()),
+          ),
         ],
       ),
     );
