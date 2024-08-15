@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -19,7 +20,17 @@ void _navigation(BuildContext context, Widget navpage) {
 
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+  void toastfunction() {
+    Fluttertoast.showToast(
+      msg: 'TOAST!',
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 2,
+      backgroundColor: Colors.blueAccent,
+      textColor: Colors.black,
+      fontSize: 20,
+      toastLength: Toast.LENGTH_LONG,
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -40,6 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
             'Grid',
             'Grid View',
             () => _navigation(context, const GridViewWidget()),
+          ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Toast',
+            'Press for Toast',
+            toastfunction,
           ),
         ],
       ),
