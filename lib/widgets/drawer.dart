@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/loginpage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -58,7 +59,31 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.logout_sharp),
               title: const Text('Logout'),
-              onTap: () => Navigator.pop(context),
+              onTap: () => showDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Confirm Logout'),
+                  content: const Text('Are you sure to Logout!'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                          (Route route) => false,
+                        );
+                      },
+                      child: const Text('Ok'),
+                    ),
+                  ],
+                ),
+              ),
             )
           ],
         ),
