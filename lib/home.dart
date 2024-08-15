@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application/animation/pagerouteanimation.dart';
 import 'package:flutter_application/gymui.dart';
@@ -18,10 +20,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 void _navigation(BuildContext context, Widget navpage) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => navpage),
-  );
+  // Navigator.push(
+  //   context,
+  //   MaterialPageRoute(builder: (context) => navpage),
+  // );
+  Navigator.push(context, _pageRoute(navpage));
 }
 
 
@@ -100,17 +103,34 @@ class _MyHomePageState extends State<MyHomePage> {
             'Animation Widgets',
             () => _navigation(context, const AnimationWidget()),
           ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Page Animation',
-            'Page Route Animation ',
-            () => _navigation(context, const PageRouteAnimation()),
-          ),
+          // const SizedBox(height: 10),
+          // listtilewidget(
+          //   context,
+          //   'Page Animation',
+          //   'Page Route Animation ',
+          //   () => _navigation(context, const PageRouteAnimation()),
+          // ),
         ],
       ),
     );
   }
+}
+
+Route _pageRoute(Widget anipage) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => anipage,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begins = Offset(0.0, 1.0);
+      const ends = Offset.zero;
+      const curves = Curves.fastOutSlowIn;
+      var tweens =
+          Tween(begin: begins, end: ends).chain(CurveTween(curve: curves));
+      return SlideTransition(
+        position: animation.drive(tweens),
+        child: child,
+      );
+    },
+  );
 }
 
 Widget listtilewidget(
