@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/jhome.dart';
 import 'package:flutter_application/loginpage.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -38,7 +39,8 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
-            const ListTile(
+            ListTile(
+              onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>JayHomePage())),
               leading: Icon(Icons.home_outlined),
               title: Text('Home'),
             ),
@@ -47,11 +49,13 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.search_sharp),
               title: const Text('Search'),
             ),
-            const ListTile(
+            ListTile(
+              onTap: () {},
               leading: Icon(Icons.call),
               title: Text('Contact Us'),
             ),
-            const ListTile(
+            ListTile(
+              onTap: () {},
               leading: Icon(Icons.settings),
               title: Text('Settings'),
             ),
