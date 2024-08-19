@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/jhome.dart';
+import 'package:flutter_application/Screens/navigation.dart';
 import 'package:flutter_application/loginpage.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -40,7 +41,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>JayHomePage())),
+              onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Navigation())),
               leading: Icon(Icons.home_outlined),
               title: Text('Home'),
             ),

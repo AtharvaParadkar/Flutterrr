@@ -24,16 +24,31 @@ class _JayHomePageState extends State<JayHomePage> {
       ItemImageUrl:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQR7RwfNQ9oCjQcxm6bY7lYLt5ON6PxCxSlg&s',
       ItemTitle: 'Black Automotive Electrical Switches',
-      ItmeClass: 'For Auto',
+      ItmeClass: 'For Automobile',
       ItemPrice: 90,
     ),
     Jaymodal(
-        ItemImageUrl:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROUHaWQjMj1MTvSgSln7j_HmbhslZK9aLQrA&s',
-        ItemTitle: 'Handle Bar Switches',
-        ItmeClass: 'For Auto1',
-        ItemPrice: 900,
-        BestSeller: true),
+      ItemImageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROUHaWQjMj1MTvSgSln7j_HmbhslZK9aLQrA&s',
+      ItemTitle: 'Handle Bar Switches',
+      ItmeClass: 'For Automobile',
+      ItemPrice: 900,
+      BestSeller: true,
+    ),
+    Jaymodal(
+      ItemImageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzmO37evMptVmFuM607isuPwf4lSgwxuKHpg&s',
+      ItemTitle: 'CND Switches',
+      ItmeClass: 'For Automobile',
+      ItemPrice: 600,
+    ),
+    Jaymodal(
+      ItemImageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvt4C1QuyGUIzrWvtIiWyJLKZGNC7BByM4Vw&s',
+      ItemTitle: 'Motorcycle Ignition Switches',
+      ItmeClass: 'For Automobile',
+      ItemPrice: 1200,
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -272,7 +287,7 @@ class ProductItems extends StatelessWidget {
                 child: Text(
                   product.ItemTitle,
                   style: TextStyle(fontWeight: FontWeight.bold),
-                ), 
+                ),
               ),
               Padding(
                 padding: EdgeInsets.all(8),
@@ -315,35 +330,5 @@ class ProductItems extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class BestSellerClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-
-    // Top-left corner with a circular cut
-    path.moveTo(0, 20);
-    path.quadraticBezierTo(0, 0, 20, 0);
-
-    // Top-right corner (rectangular)
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height - 20);
-
-    // Bottom-right corner with a circular cut
-    path.quadraticBezierTo(
-        size.width, size.height, size.width - 20, size.height);
-
-    // Bottom-left corner (rectangular)
-    path.lineTo(0, size.height);
-
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
   }
 }
