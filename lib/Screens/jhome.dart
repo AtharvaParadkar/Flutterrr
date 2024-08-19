@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application/modal/jaymodal.dart';
 
 class JayHomePage extends StatefulWidget {
   const JayHomePage({super.key});
@@ -10,15 +11,32 @@ class JayHomePage extends StatefulWidget {
 }
 
 class _JayHomePageState extends State<JayHomePage> {
+  final List<String> _categories = [
+    'ALL',
+    'Switches',
+    'Door Locks',
+    'Car Door Locks',
+    'Handles'
+  ];
+
+  final List<Jaymodal> products = [
+    Jaymodal(
+      ItemImageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQR7RwfNQ9oCjQcxm6bY7lYLt5ON6PxCxSlg&s',
+      ItemTitle: 'Black Automotive Electrical Switches',
+      ItmeClass: 'For Auto',
+      ItemPrice: 90,
+    ),
+    Jaymodal(
+        ItemImageUrl:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROUHaWQjMj1MTvSgSln7j_HmbhslZK9aLQrA&s',
+        ItemTitle: 'Handle Bar Switches',
+        ItmeClass: 'For Auto1',
+        ItemPrice: 900,
+        BestSeller: true),
+  ];
   @override
   Widget build(BuildContext context) {
-    final List<String> _categories = [
-      'ALL',
-      'Switches',
-      'Door Locks',
-      'Car Door Locks',
-      'Handles'
-    ];
     int _onSelectedCategory = 0;
     return Scaffold(
       appBar: AppBar(
@@ -116,8 +134,7 @@ class _JayHomePageState extends State<JayHomePage> {
                         child: Text(
                           _categories[index],
                           style: TextStyle(
-                            fontSize:
-                                _onSelectedCategory == index ? 18 : 16,
+                            fontSize: _onSelectedCategory == index ? 18 : 16,
                             color: _onSelectedCategory == index
                                 ? Colors.white
                                 : Colors.grey,
@@ -128,6 +145,32 @@ class _JayHomePageState extends State<JayHomePage> {
                     ),
                   );
                 },
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text('Recently Added'),
+                Icon(Icons.keyboard_arrow_down_sharp),
+                SizedBox(width: 20),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                height: MediaQuery.of(context).size.height / 2,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.7,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                  ),
+                  itemCount: products.length,
+                  itemBuilder: (context, i) => ProductItems(
+                    product: products[i],
+                  ),
+                ),
               ),
             ),
           ],
@@ -200,5 +243,107 @@ class BlurredStack extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ProductItems extends StatelessWidget {
+  const ProductItems({super.key, required this.product});
+  final Jaymodal product;
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                  child: Image.network(
+                    product.ItemImageUrl,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Text(
+                  product.ItemTitle,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ), 
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Text(
+                  product.ItmeClass,
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Text(
+                  '\u{20B9}${product.ItemPrice.toStringAsFixed(0)}',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ],
+          ),
+          if (product.BestSeller)
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 0, 0),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                  ),
+                ),
+                child: Text(
+                  'Best Seller',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class BestSellerClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+
+    // Top-left corner with a circular cut
+    path.moveTo(0, 20);
+    path.quadraticBezierTo(0, 0, 20, 0);
+
+    // Top-right corner (rectangular)
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height - 20);
+
+    // Bottom-right corner with a circular cut
+    path.quadraticBezierTo(
+        size.width, size.height, size.width - 20, size.height);
+
+    // Bottom-left corner (rectangular)
+    path.lineTo(0, size.height);
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
