@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/JayCategoryPage.dart';
 import 'package:flutter_application/Screens/jhome.dart';
+import 'package:flutter_application/Screens/jprofile.dart';
+import 'package:flutter_application/Screens/jrewards.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -28,6 +30,8 @@ class _NavigationState extends State<Navigation> {
         children: [
           JayHomePage(),
           JayCategoryPage(),
+          JayRewardsPage(),
+          JayProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -39,6 +43,14 @@ class _NavigationState extends State<Navigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.grid_view_rounded),
             label: 'Categories',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_events_outlined),
+            label: 'Rewards',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline_rounded),
+            label: 'Profile',
           ),
         ],
         currentIndex: selectedIndex,
