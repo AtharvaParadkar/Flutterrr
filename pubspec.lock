@@ -128,6 +128,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  leme_nav_bae:
+    dependency: "direct main"
+    description:
+      name: leme_nav_bae
+      sha256: "3ee80bdbc6bfdbdb5ca091c438dc73db77aef1afdb1f61aa06b6cf0141768a6e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   matcher:
     dependency: transitive
     description:
