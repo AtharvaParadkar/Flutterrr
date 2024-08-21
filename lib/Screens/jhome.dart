@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/itemdetails.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
 class JayHomePage extends StatefulWidget {
@@ -11,7 +12,8 @@ class JayHomePage extends StatefulWidget {
 }
 
 class _JayHomePageState extends State<JayHomePage> {
-  final List<String> _categories = [
+
+  final List<String> categories = [
     'ALL',
     'Switches',
     'Door Locks',
@@ -19,7 +21,7 @@ class _JayHomePageState extends State<JayHomePage> {
     'Handles'
   ];
 
-  final List<Jaymodal> products = [
+final List<Jaymodal> products = [
     Jaymodal(
       ItemImageUrl:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQR7RwfNQ9oCjQcxm6bY7lYLt5ON6PxCxSlg&s',
@@ -50,6 +52,7 @@ class _JayHomePageState extends State<JayHomePage> {
       ItemPrice: 1200,
     ),
   ];
+  
   @override
   Widget build(BuildContext context) {
     int _onSelectedCategory = 0;
@@ -127,7 +130,7 @@ class _JayHomePageState extends State<JayHomePage> {
               padding: EdgeInsets.all(8),
               child: ListView.builder(
                 key: ValueKey<int>(_onSelectedCategory),
-                itemCount: _categories.length,
+                itemCount: categories.length,
                 scrollDirection: Axis.horizontal,
                 physics: BouncingScrollPhysics(),
                 itemBuilder: (ctx, index) {
@@ -148,7 +151,7 @@ class _JayHomePageState extends State<JayHomePage> {
                       ),
                       child: Center(
                         child: Text(
-                          _categories[index],
+                          categories[index],
                           style: TextStyle(
                             fontSize: _onSelectedCategory == index ? 18 : 16,
                             color: _onSelectedCategory == index
@@ -183,9 +186,20 @@ class _JayHomePageState extends State<JayHomePage> {
                     mainAxisSpacing: 8,
                   ),
                   itemCount: products.length,
-                  itemBuilder: (context, i) => ProductItems(
-                    product: products[i],
-                  ),
+                  itemBuilder: (context, i) {
+                    Jaymodal model = products[i];
+                    return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (ctx) => ItemDetails(item: model)),
+                      );
+                    },
+                    child: ProductItems(
+                      product: products[i],
+                    ),
+                  );
+                  },
                 ),
               ),
             ),

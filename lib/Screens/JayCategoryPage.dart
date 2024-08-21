@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/itemdetails.dart';
 import 'package:flutter_application/modal/jaycategorymodal.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
@@ -10,27 +11,6 @@ class JayCategoryPage extends StatefulWidget {
 }
 
 class _JayCategoryPageState extends State<JayCategoryPage> {
-  final List<JayCategoryModel> CProducts = [
-    JayCategoryModel(
-        CItemImageUrl:
-            'https://m.media-amazon.com/images/I/51A2cEBcKFL._AC_UF1000,1000_QL80_.jpg',
-        CItemTitle: 'Automotive Switches'),
-    JayCategoryModel(
-        CItemImageUrl:
-            'https://www.huf-group.com/sites/default/files/styles/dd_page_content_width/public/news/images/huf-flush-door-handle-rotatable-open-car.jpg?itok=UrJXcMc4',
-        CItemTitle: 'Car Door Handles'),
-    JayCategoryModel(
-        CItemImageUrl:
-            'https://parkers-images.bauersecure.com/wp-images/182460/1200x800/001-best-steering-wheel-lock.jpg?mode=max&quality=90&scale=down',
-        CItemTitle: 'Steering Locks'),
-    JayCategoryModel(
-        CItemImageUrl: 'https://m.media-amazon.com/images/I/9152KBVOtfL.jpg',
-        CItemTitle: 'Door Locks'),
-    JayCategoryModel(
-        CItemImageUrl: 'https://m.media-amazon.com/images/I/81If4yf1LaL.jpg',
-        CItemTitle: 'Motorcycle Locks'),
-  ];
-
   final List<Jaymodal> products = [
     Jaymodal(
       ItemImageUrl:
@@ -63,6 +43,26 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
     ),
   ];
 
+  final List<JayCategoryModel> CProducts = [
+    JayCategoryModel(
+        CItemImageUrl:
+            'https://m.media-amazon.com/images/I/51A2cEBcKFL._AC_UF1000,1000_QL80_.jpg',
+        CItemTitle: 'Automotive Switches'),
+    JayCategoryModel(
+        CItemImageUrl:
+            'https://www.huf-group.com/sites/default/files/styles/dd_page_content_width/public/news/images/huf-flush-door-handle-rotatable-open-car.jpg?itok=UrJXcMc4',
+        CItemTitle: 'Car Door Handles'),
+    JayCategoryModel(
+        CItemImageUrl:
+            'https://parkers-images.bauersecure.com/wp-images/182460/1200x800/001-best-steering-wheel-lock.jpg?mode=max&quality=90&scale=down',
+        CItemTitle: 'Steering Locks'),
+    JayCategoryModel(
+        CItemImageUrl: 'https://m.media-amazon.com/images/I/9152KBVOtfL.jpg',
+        CItemTitle: 'Door Locks'),
+    JayCategoryModel(
+        CItemImageUrl: 'https://m.media-amazon.com/images/I/81If4yf1LaL.jpg',
+        CItemTitle: 'Motorcycle Locks'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,35 +89,36 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
               padding: const EdgeInsets.all(20),
               child: Row(
                 children: [
-                  Container(
-                    height: 60,
-                    width: 240,
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: Offset(2, 5),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.search, color: Colors.grey),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Search anything',
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              border: InputBorder.none,
-                            ),
+                  Expanded(
+                    child: Container(
+                      height: 60,
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: Offset(2, 5),
                           ),
-                        )
-                      ],
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.search, color: Colors.grey),
+                          SizedBox(width: 10),
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Search anything',
+                                hintStyle: const TextStyle(color: Colors.grey),
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
@@ -224,9 +225,21 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
                     mainAxisSpacing: 8,
                   ),
                   itemCount: products.length,
-                  itemBuilder: (context, i) => ProductItems(
-                    product: products[i],
-                  ),
+                  itemBuilder: (context, i) {
+                    Jaymodal model = products[i];
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (ctx) => ItemDetails(item: model)),
+                        );
+                      },
+                      child: ProductItems(
+                        product: products[i],
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
