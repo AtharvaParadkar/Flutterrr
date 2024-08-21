@@ -120,6 +120,7 @@ class _JayHomePageState extends State<JayHomePage> {
                 ),
               ),
             ),
+            //~ Categories
             SizedBox(height: 20),
             Container(
               height: 50,
@@ -266,15 +267,19 @@ class ProductItems extends StatelessWidget {
   final Jaymodal product;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Stack(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                child: Card(
+                  elevation: 5,
+                  clipBehavior: Clip.hardEdge,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
                   child: Image.network(
                     product.ItemImageUrl,
                     width: double.infinity,
@@ -283,25 +288,23 @@ class ProductItems extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(4),
                 child: Text(
                   product.ItemTitle,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(4),
                 child: Text(
                   product.ItmeClass,
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Text(
-                  '\u{20B9}${product.ItemPrice.toStringAsFixed(0)}',
-                  style: TextStyle(color: Colors.grey),
-                ),
+              Text(
+                // textAlign: TextAlign.left,
+                '\u{20B9}${product.ItemPrice.toStringAsFixed(0)}',
+                style: TextStyle(color: Colors.grey),
               ),
             ],
           ),

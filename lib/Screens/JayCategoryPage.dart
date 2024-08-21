@@ -162,7 +162,7 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10,top: 10,bottom: 10),
+              padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
               child: SizedBox(
                 height: 130,
                 child: ListView.builder(
@@ -182,13 +182,23 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
                           ),
                         ),
                       ),
+                      // CircleAvatar(
+                      //   maxRadius: 45,
+                      //   child: Container(
+                      //     child: Image.network(
+                      //       CProducts[i].CItemImageUrl,
+                      //       fit: BoxFit.fill,
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 35,
                         width: 80,
-                          child: Text(
-                        CProducts[i].CItemTitle,
-                        style: TextStyle(color: Colors.black),
-                      ),),
+                        child: Text(
+                          CProducts[i].CItemTitle,
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -232,15 +242,19 @@ class ProductItems extends StatelessWidget {
   final Jaymodal product;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Stack(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                child: Card(
+                  elevation: 5,
+                  clipBehavior: Clip.hardEdge,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
                   child: Image.network(
                     product.ItemImageUrl,
                     width: double.infinity,
@@ -249,25 +263,23 @@ class ProductItems extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(4),
                 child: Text(
                   product.ItemTitle,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(4),
                 child: Text(
                   product.ItmeClass,
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Text(
-                  '\u{20B9}${product.ItemPrice.toStringAsFixed(0)}',
-                  style: TextStyle(color: Colors.grey),
-                ),
+              Text(
+                // textAlign: TextAlign.left,
+                '\u{20B9}${product.ItemPrice.toStringAsFixed(0)}',
+                style: TextStyle(color: Colors.grey),
               ),
             ],
           ),
