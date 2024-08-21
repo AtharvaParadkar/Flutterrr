@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/itemdetails.dart';
+import 'package:flutter_application/data/jay_dummy_data.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
 class JayHomePage extends StatefulWidget {
@@ -12,46 +13,6 @@ class JayHomePage extends StatefulWidget {
 }
 
 class _JayHomePageState extends State<JayHomePage> {
-
-  final List<String> categories = [
-    'ALL',
-    'Switches',
-    'Door Locks',
-    'Car Door Locks',
-    'Handles'
-  ];
-
-final List<Jaymodal> products = [
-    Jaymodal(
-      ItemImageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQR7RwfNQ9oCjQcxm6bY7lYLt5ON6PxCxSlg&s',
-      ItemTitle: 'Black Automotive Electrical Switches',
-      ItmeClass: 'For Automobile',
-      ItemPrice: 90,
-    ),
-    Jaymodal(
-      ItemImageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROUHaWQjMj1MTvSgSln7j_HmbhslZK9aLQrA&s',
-      ItemTitle: 'Handle Bar Switches',
-      ItmeClass: 'For Automobile',
-      ItemPrice: 900,
-      BestSeller: true,
-    ),
-    Jaymodal(
-      ItemImageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzmO37evMptVmFuM607isuPwf4lSgwxuKHpg&s',
-      ItemTitle: 'CND Switches',
-      ItmeClass: 'For Automobile',
-      ItemPrice: 600,
-    ),
-    Jaymodal(
-      ItemImageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvt4C1QuyGUIzrWvtIiWyJLKZGNC7BByM4Vw&s',
-      ItemTitle: 'Motorcycle Ignition Switches',
-      ItmeClass: 'For Automobile',
-      ItemPrice: 1200,
-    ),
-  ];
   
   @override
   Widget build(BuildContext context) {
