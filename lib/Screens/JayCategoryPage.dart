@@ -11,7 +11,6 @@ class JayCategoryPage extends StatefulWidget {
 }
 
 class _JayCategoryPageState extends State<JayCategoryPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,12 +132,9 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
                         ),
                       ),
                       // CircleAvatar(
-                      //   maxRadius: 45,
-                      //   child: Container(
-                      //     child: Image.network(
-                      //       CProducts[i].CItemImageUrl,
-                      //       fit: BoxFit.fill,
-                      //     ),
+                      //   maxRadius: 46,
+                      //   backgroundImage: NetworkImage(
+                      //     CProducts[i].CItemImageUrl,
                       //   ),
                       // ),
                       SizedBox(

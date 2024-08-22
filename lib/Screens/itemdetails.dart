@@ -25,10 +25,14 @@ class _ItemDetailsState extends State<ItemDetails> {
         height: 300,
         width: 300,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(widget.item.ItemImageUrl,fit: BoxFit.cover,),
+            Card(
+              elevation: 7,
+              child: Image.network(widget.item.ItemImageUrl, fit: BoxFit.cover),
+            ),
             Text(widget.item.ItemTitle),
-            Text('\u{20B9}${widget.item.ItemPrice.toString()}'),
+            Text('${widget.item.ItemPrice.toString()}'),
           ],
         ),
       ),

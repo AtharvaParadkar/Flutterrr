@@ -11,3 +11,10 @@ class Jaymodal {
     required this.ItemPrice,
   });
 }
+
+
+class JayCategoryModel {
+  final String CItemImageUrl, CItemTitle;
+
+  JayCategoryModel({required this.CItemImageUrl, required this.CItemTitle});
+}

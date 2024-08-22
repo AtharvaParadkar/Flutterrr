@@ -1,4 +1,3 @@
-import 'package:flutter_application/modal/jaycategorymodal.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
   final List<String> categories = [
