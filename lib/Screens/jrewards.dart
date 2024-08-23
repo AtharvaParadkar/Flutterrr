@@ -31,10 +31,10 @@ class _JayRewardsPageState extends State<JayRewardsPage> {
         children: [
           Center(
             child: SizedBox(
-              height: 100,
-              width: 200,
+              height: 250,
+              width: 290,
               child: Card(
-                elevation: 15,
+                elevation: 25,
                 shadowColor: Color.fromARGB(183, 255, 0, 0),
                 color: Color.fromARGB(255, 255, 0, 0),
                 child: Center(
@@ -55,13 +55,12 @@ class _JayRewardsPageState extends State<JayRewardsPage> {
               ),
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 50),
           InkWell(
             onTap: () => Navigator.push(
                 context, MaterialPageRoute(builder: (_) => QRCodeScanner())),
             child: Icon(
-              Icons.qr_code_scanner,
-              size: 50,
+              Icons.qr_code_scanner,size: 140,
               color: Color.fromARGB(255, 0, 255, 0),
             ),
           ),
