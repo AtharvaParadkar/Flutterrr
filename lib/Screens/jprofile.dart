@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/jeditprofile.dart';
 import 'package:flutter_application/data/jay_dummy_data.dart';
 
 class JayProfilePage extends StatefulWidget {
@@ -56,9 +57,14 @@ class _JayProfilePageState extends State<JayProfilePage> {
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 7,
-                      right: 7,
-                      child: Icon(Icons.edit, size: 20),
+                      top: 1,
+                      right: 1,
+                      child: IconButton(
+                        onPressed: () =>Navigator.push(context,MaterialPageRoute(builder: (_)=>JayEditProfilePage())),
+                        icon: Icon(
+                          Icons.edit,
+                        ),
+                      ),
                     ),
                     Center(
                       child: Column(
@@ -115,9 +121,9 @@ class _JayProfilePageState extends State<JayProfilePage> {
           ),
           Positioned(
             left: 23,
-            bottom: 35,
+            top: 260,
             child: SizedBox(
-              height: 365,
+              height: 370,
               width: MediaQuery.of(context).size.width / 1.15,
               child: Card(
                 elevation: 10,
