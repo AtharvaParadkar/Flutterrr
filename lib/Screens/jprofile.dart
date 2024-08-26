@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/jeditprofile.dart';
-import 'package:flutter_application/data/jay_dummy_data.dart';
+import 'package:flutter_application/loginpage.dart';
 
 class JayProfilePage extends StatefulWidget {
   const JayProfilePage({super.key});
 
   @override
   State<JayProfilePage> createState() => _JayProfilePageState();
+}
+
+void _navigation(BuildContext context, Widget navpage) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (_) => navpage),
+  );
 }
 
 class _JayProfilePageState extends State<JayProfilePage> {
@@ -60,7 +67,10 @@ class _JayProfilePageState extends State<JayProfilePage> {
                       top: 1,
                       right: 1,
                       child: IconButton(
-                        onPressed: () =>Navigator.push(context,MaterialPageRoute(builder: (_)=>JayEditProfilePage())),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => JayEditProfilePage())),
                         icon: Icon(
                           Icons.edit,
                         ),
@@ -128,12 +138,15 @@ class _JayProfilePageState extends State<JayProfilePage> {
               child: Card(
                 elevation: 10,
                 color: const Color.fromARGB(255, 255, 255, 255),
-                child: ListView.builder(
-                  itemCount: account.length,
-                  itemBuilder: (ctx, i) => ListTile(
-                    title: Text(account[i].AccountOptions),
-                    trailing: account[i].AccountIcon,
-                  ),
+                child: Column(
+                  children: [
+                    profilelistwidget(context, 'My Orders', Icon(Icons.favorite_border_rounded), (){}),
+                    profilelistwidget(context, 'My Favorite', Icon(Icons.local_offer_outlined), (){}),
+                    profilelistwidget(context, 'Credits & Coupons', Icon(Icons.local_offer_outlined),(){}),
+                    profilelistwidget(context, 'Shipping Address', Icon(Icons.location_on_outlined), (){}),
+                    profilelistwidget(context, 'Account Settings', Icon(Icons.settings), (){}),
+                    profilelistwidget(context, 'Logout', Icon(Icons.logout), ()=>_navigation(context,LoginPage())),
+                  ],
                 ),
               ),
             ),
@@ -142,4 +155,16 @@ class _JayProfilePageState extends State<JayProfilePage> {
       ),
     );
   }
+}
+
+Widget profilelistwidget(
+    BuildContext context, String text, Icon icon, VoidCallback onTap) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 2),
+    child: ListTile(
+      title: Text(text),
+      trailing: icon,
+      onTap: onTap,
+    ),
+  );
 }
