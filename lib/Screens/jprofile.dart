@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/jeditprofile.dart';
+import 'package:flutter_application/Screens/jshippingaddress.dart';
 import 'package:flutter_application/loginpage.dart';
 
 class JayProfilePage extends StatefulWidget {
@@ -140,12 +141,42 @@ class _JayProfilePageState extends State<JayProfilePage> {
                 color: const Color.fromARGB(255, 255, 255, 255),
                 child: Column(
                   children: [
-                    profilelistwidget(context, 'My Orders', Icon(Icons.favorite_border_rounded), (){}),
-                    profilelistwidget(context, 'My Favorite', Icon(Icons.local_offer_outlined), (){}),
-                    profilelistwidget(context, 'Credits & Coupons', Icon(Icons.local_offer_outlined),(){}),
-                    profilelistwidget(context, 'Shipping Address', Icon(Icons.location_on_outlined), (){}),
-                    profilelistwidget(context, 'Account Settings', Icon(Icons.settings), (){}),
-                    profilelistwidget(context, 'Logout', Icon(Icons.logout), ()=>_navigation(context,LoginPage())),
+                    profilelistwidget(
+                      context,
+                      'My Orders',
+                      Icon(Icons.favorite_border_rounded),
+                      () {},
+                    ),
+                    profilelistwidget(
+                      context,
+                      'My Favorite',
+                      Icon(Icons.local_offer_outlined),
+                      () {},
+                    ),
+                    profilelistwidget(
+                      context,
+                      'Credits & Coupons',
+                      Icon(Icons.local_offer_outlined),
+                      () {},
+                    ),
+                    profilelistwidget(
+                      context,
+                      'Shipping Address',
+                      Icon(Icons.location_on_outlined),
+                      () => _navigation(context, JayShippingAddress()),
+                    ),
+                    profilelistwidget(
+                      context,
+                      'Account Settings',
+                      Icon(Icons.settings),
+                      () {},
+                    ),
+                    profilelistwidget(
+                      context,
+                      'Logout',
+                      Icon(Icons.logout),
+                      () => _navigation(context, LoginPage()),
+                    ),
                   ],
                 ),
               ),
@@ -160,7 +191,7 @@ class _JayProfilePageState extends State<JayProfilePage> {
 Widget profilelistwidget(
     BuildContext context, String text, Icon icon, VoidCallback onTap) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 2),
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
     child: ListTile(
       title: Text(text),
       trailing: icon,
