@@ -7,7 +7,7 @@ class JayShippingAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add New Address'),
+        title: Text('Addressess'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -36,16 +36,16 @@ class JayShippingAddress extends StatelessWidget {
                   shadowColor: Colors.transparent,
                 ),
                 child: const Text(
-                  'Shipping Address',
+                  'Add New Address',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
             ),
             SizedBox(height: 40),
-            Address('Home', 'Salmiya',
+            AddressWidget('Home', 'Salmiya',
                 'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital'),
             SizedBox(height: 40),
-            Address('Home', 'Salmiya',
+            AddressWidget('Home', 'Salmiya',
                 'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital'),
           ],
         ),
@@ -54,7 +54,7 @@ class JayShippingAddress extends StatelessWidget {
   }
 }
 
-Widget Address(String atype, name, add) {
+Widget AddressWidget(String atype, name, add) {
   return Padding(
     padding: EdgeInsets.all(10),
     child: Column(
