@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/jnewaddress.dart';
 
 class JayShippingAddress extends StatelessWidget {
-  const JayShippingAddress({super.key});
+  const JayShippingAddress({
+    super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,8 @@ class JayShippingAddress extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => JayNewAddress())),
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
@@ -47,6 +50,14 @@ class JayShippingAddress extends StatelessWidget {
             SizedBox(height: 40),
             AddressWidget('Home', 'Salmiya',
                 'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital'),
+            Card(
+              elevation: 10,
+              child: Column(
+                children: [
+                  // Text(),
+                ],
+              ),
+            )
           ],
         ),
       ),
