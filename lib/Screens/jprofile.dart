@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/jaccountsettings.dart';
 import 'package:flutter_application/Screens/jeditprofile.dart';
 import 'package:flutter_application/Screens/jorderspage.dart';
 import 'package:flutter_application/Screens/jshippingaddress.dart';
@@ -146,7 +147,7 @@ class _JayProfilePageState extends State<JayProfilePage> {
                       context,
                       'My Orders',
                       Icon(Icons.favorite_border_rounded),
-                      () => _navigation(context,JayOrdersPage()),
+                      () => _navigation(context, JayOrdersPage()),
                     ),
                     profilelistwidget(
                       context,
@@ -168,9 +169,9 @@ class _JayProfilePageState extends State<JayProfilePage> {
                     ),
                     profilelistwidget(
                       context,
-                      'Account Settings',
+                      'Settings',
                       Icon(Icons.settings),
-                      () {},
+                      () => _navigation(context, AccountSettings()),
                     ),
                     profilelistwidget(
                       context,
