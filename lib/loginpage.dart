@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application/home.dart';
-import 'package:flutter_application/widgets/appbar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,23 +27,24 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const MyHomePage(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begins = Offset(0.0, 1.0);
-      const ends = Offset.zero;
-      const curves = Curves.fastOutSlowIn;
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const MyHomePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begins = Offset(0.0, 1.0);
+        const ends = Offset.zero;
+        const curves = Curves.fastOutSlowIn;
 
-      var tweens =
-          Tween(begin: begins, end: ends).chain(CurveTween(curve: curves));
+        var tweens =
+            Tween(begin: begins, end: ends).chain(CurveTween(curve: curves));
 
-      return SlideTransition(
-        position: animation.drive(tweens),
-        child: child,
-      );
-    },
-  );
-}
+        return SlideTransition(
+          position: animation.drive(tweens),
+          child: child,
+        );
+      },
+    );
+  }
 
   void toastfunction(String message) {
     Fluttertoast.showToast(
@@ -61,7 +61,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myappbar('Login Page'),
+      appBar: AppBar(
+        title: Text('Login Page'),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 255),
+        automaticallyImplyLeading: false,
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
