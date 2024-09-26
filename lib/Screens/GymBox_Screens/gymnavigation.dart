@@ -33,11 +33,11 @@ class _GymNavigationState extends State<GymNavigation> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.check_circle),
             label: 'Bookings',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view_rounded),
+            icon: Icon(Icons.person_3_outlined),
             label: 'Account',
           ),
         ],
