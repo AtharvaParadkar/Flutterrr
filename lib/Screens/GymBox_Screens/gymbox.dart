@@ -28,7 +28,7 @@ class _GymBoxState extends State<GymBox> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 16),
+          SizedBox(height: 10),
           //~ Bookings Categories
           Container(
             height: 60,
@@ -71,7 +71,7 @@ class _GymBoxState extends State<GymBox> {
           ),
           //~ Filter
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: Row(
               children: [
                 Text(
@@ -112,8 +112,9 @@ class _GymBoxState extends State<GymBox> {
           ),
           //~Booking Card 1
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 17),
-            child: Card(elevation: 5,
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            child: Card(
+              elevation: 5,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -206,8 +207,9 @@ class _GymBoxState extends State<GymBox> {
           ),
           //~ Booking Card 2
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 17),
-            child: Card(elevation: 5,
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            child: Card(
+              elevation: 5,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -298,10 +300,30 @@ class _GymBoxState extends State<GymBox> {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(200, 255, 0, 0),
+                minimumSize: Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+              child: Text(
+                'Cancellation Requested',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
           //~ Booking Card 3
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 17),
-            child: Card(elevation: 5,
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            child: Card(
+              elevation: 5,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
