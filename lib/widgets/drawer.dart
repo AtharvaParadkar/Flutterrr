@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/GymBox_Screens/gymnavigation.dart';
 import 'package:flutter_application/Screens/Jay_Screens/navigation.dart';
 import 'package:flutter_application/loginpage.dart';
 
@@ -45,7 +46,7 @@ class MyDrawer extends StatelessWidget {
               title: Text('Jay UI'),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>GymNavigation())),
               leading: Icon(Icons.home_outlined),
               title: Text('Gym Box UI'),
             ),
