@@ -42,6 +42,16 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Navigation())),
               leading: Icon(Icons.home_outlined),
+              title: Text('Jay UI'),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.home_outlined),
+              title: Text('Gym Box UI'),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.home_outlined),
               title: Text('Home'),
             ),
             ListTile(
