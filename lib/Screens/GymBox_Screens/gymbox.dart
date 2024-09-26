@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/GymBox_Screens/filter.dart';
 
 class GymBox extends StatefulWidget {
   const GymBox({super.key});
@@ -59,9 +60,10 @@ class _GymBoxState extends State<GymBox> {
                       child: Text(
                         bookingCategory[i],
                         style: TextStyle(
-                            color: _onSelectedCategory == i
-                                ? Colors.white
-                                : Colors.black),
+                          color: _onSelectedCategory == i
+                              ? Colors.white
+                              : Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -84,7 +86,7 @@ class _GymBoxState extends State<GymBox> {
                 ),
                 Spacer(),
                 ShaderMask(
-                  shaderCallback: (Rect bounds) {
+                  shaderCallback: (bounds) {
                     return const LinearGradient(
                       colors: [
                         Color.fromARGB(255, 160, 37, 249),
@@ -95,9 +97,13 @@ class _GymBoxState extends State<GymBox> {
                       end: Alignment.bottomRight,
                     ).createShader(bounds);
                   },
-                  child: Icon(
-                    Icons.filter_alt_outlined,
-                    color: Colors.white,
+                  child: InkWell(
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => BookingCategoryFilter())),
+                    child: Icon(
+                      Icons.filter_alt_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 Text(
