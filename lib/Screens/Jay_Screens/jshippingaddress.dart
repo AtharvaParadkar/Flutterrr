@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Screens/jnewaddress.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jnewaddress.dart';
 
 class JayShippingAddress extends StatelessWidget {
   const JayShippingAddress({

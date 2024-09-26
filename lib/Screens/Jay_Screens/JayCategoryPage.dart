@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Screens/itemdetails.dart';
+import 'package:flutter_application/Screens/Jay_Screens/itemdetails.dart';
 import 'package:flutter_application/data/jay_dummy_data.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 

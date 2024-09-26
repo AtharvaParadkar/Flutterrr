@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Screens/jaccountsettings.dart';
-import 'package:flutter_application/Screens/jeditprofile.dart';
-import 'package:flutter_application/Screens/jorderspage.dart';
-import 'package:flutter_application/Screens/jshippingaddress.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jaccountsettings.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jeditprofile.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jorderspage.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jshippingaddress.dart';
 import 'package:flutter_application/loginpage.dart';
 
 class JayProfilePage extends StatefulWidget {

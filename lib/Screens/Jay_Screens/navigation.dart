@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Screens/JayCategoryPage.dart';
-import 'package:flutter_application/Screens/jhome.dart';
-import 'package:flutter_application/Screens/jprofile.dart';
-import 'package:flutter_application/Screens/jrewards.dart';
+import 'package:flutter_application/Screens/Jay_Screens/JayCategoryPage.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jhome.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jprofile.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jrewards.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
