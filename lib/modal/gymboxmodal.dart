@@ -1,6 +1,11 @@
-class GymBoxModal{
-  final String bookingId,Package,time;
-  final DateTime date;
+class GymBoxModal {
+  final String bookingId, bookingPackage, bookingTime;
+  final DateTime bookingDate;
 
-  GymBoxModal({required this.bookingId, required this.Package, required this.time, required this.date}); 
+  GymBoxModal({
+    required this.bookingId,
+    required this.bookingPackage,
+    required this.bookingTime,
+    required this.bookingDate,
+  });
 }

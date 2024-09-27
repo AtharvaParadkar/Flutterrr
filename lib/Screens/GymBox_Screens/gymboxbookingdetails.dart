@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/modal/gymboxmodal.dart';
 
 class GymboxBookingDetails extends StatelessWidget {
-  const GymboxBookingDetails({
-    super.key,
-    required this.bookingId,
-    required this.bookingPackage,
-    required this.bookingTime,
-    required this.bookingDate,
-  });
+  const GymboxBookingDetails({super.key, required this.gymBookingList});
 
-  final String bookingId, bookingPackage, bookingTime, bookingDate;
+  final GymBoxModal gymBookingList;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +19,14 @@ class GymboxBookingDetails extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(
+                      gymBookingList.bookingPackage,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5),
                     Row(
                       children: [
                         Text(
@@ -36,7 +38,7 @@ class GymboxBookingDetails extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          'Package',
+                          'Status',
                           style: TextStyle(
                             color: Colors.black54,
                             fontSize: 14,
@@ -47,7 +49,7 @@ class GymboxBookingDetails extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          bookingId,
+                          gymBookingList.bookingId,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -56,7 +58,7 @@ class GymboxBookingDetails extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          bookingPackage,
+                          'Upcoming',
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -88,7 +90,7 @@ class GymboxBookingDetails extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          bookingDate,
+                          '${gymBookingList.bookingDate.day}/${gymBookingList.bookingDate.month}/${gymBookingList.bookingDate.year}',
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -97,7 +99,7 @@ class GymboxBookingDetails extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          bookingTime,
+                          gymBookingList.bookingTime,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,

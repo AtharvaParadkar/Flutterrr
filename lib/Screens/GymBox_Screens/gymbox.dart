@@ -15,7 +15,6 @@ class _GymBoxState extends State<GymBox> {
   @override
   Widget build(BuildContext context) {
     int? _onSelectedCategory = 0;
-    final GymBoxModal gymBookingList;
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -114,60 +113,17 @@ class _GymBoxState extends State<GymBox> {
                 ],
               ),
             ),
-            BookingCard(
-              context,
-              '#GYB9876',
-              'Package Name title 1..',
-              '23/04/23',
-              '09.00 AM to 10.00 PM',
-              () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => GymboxBookingDetails(
-                    bookingId: 'GYB9876',
-                    bookingPackage: 'Package Name title 1..',
-                    bookingDate: '23/04/23',
-                    bookingTime: '09.00 AM to 10.00 PM',
+            for (int i = 0; i < gymBookingList.length; i++)
+              BookingCard(
+                context,
+                gymBookingList[i],
+                () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => GymboxBookingDetails(gymBookingList: gymBookingList[i],),
                   ),
                 ),
+                showCancelButton: i == 1,
               ),
-              showCancelButton: false,
-            ),
-            BookingCard(
-              context,
-              '#GYB9876',
-              'Package Name title 1..',
-              '23/04/23',
-              '09.00 AM to 10.00 PM',
-              () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => GymboxBookingDetails(
-                    bookingId: 'GYB9876',
-                    bookingPackage: 'Package Name title 1..',
-                    bookingDate: '23/04/23',
-                    bookingTime: '09.00 AM to 10.00 PM',
-                  ),
-                ),
-              ),
-              showCancelButton: true,
-            ),
-            BookingCard(
-              context,
-              '#GYB9876',
-              'Package Name title 1..',
-              '23/04/23',
-              '09.00 AM to 10.00 PM',
-              () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => GymboxBookingDetails(
-                    bookingId: 'GYB9876',
-                    bookingPackage: 'Package Name title 1..',
-                    bookingDate: '23/04/23',
-                    bookingTime: '09.00 AM to 10.00 PM',
-                  ),
-                ),
-              ),
-              showCancelButton: false,
-            ),
           ],
         ),
       ),
@@ -175,8 +131,8 @@ class _GymBoxState extends State<GymBox> {
   }
 }
 
-Widget BookingCard(BuildContext context, String bId, bPackage, bDate, bTime,
-    VoidCallback ontap,
+Widget BookingCard(
+    BuildContext context, GymBoxModal booking, VoidCallback ontap,
     {bool showCancelButton = false}) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
@@ -210,7 +166,7 @@ Widget BookingCard(BuildContext context, String bId, bPackage, bDate, bTime,
               Row(
                 children: [
                   Text(
-                    bId,
+                    booking.bookingId,
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -219,7 +175,7 @@ Widget BookingCard(BuildContext context, String bId, bPackage, bDate, bTime,
                   ),
                   Spacer(),
                   Text(
-                    bPackage,
+                    booking.bookingPackage,
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -251,7 +207,7 @@ Widget BookingCard(BuildContext context, String bId, bPackage, bDate, bTime,
               Row(
                 children: [
                   Text(
-                    bDate,
+                    '${booking.bookingDate.day}/${booking.bookingDate.month}/${booking.bookingDate.year}',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -260,7 +216,7 @@ Widget BookingCard(BuildContext context, String bId, bPackage, bDate, bTime,
                   ),
                   Spacer(),
                   Text(
-                    bTime,
+                    booking.bookingTime,
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
