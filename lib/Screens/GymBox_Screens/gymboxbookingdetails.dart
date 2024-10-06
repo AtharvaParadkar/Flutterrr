@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/modal/gymboxmodal.dart';
+import 'package:gap/gap.dart';
 
 class GymboxBookingDetails extends StatelessWidget {
   const GymboxBookingDetails({super.key, required this.gymBookingList});
@@ -24,10 +25,10 @@ class GymboxBookingDetails extends StatelessWidget {
                     children: [
                       Text(
                         gymBookingList.bookingPackage,
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 5),
+                      Gap(5),
                       Row(
                         children: [
                           Text(
@@ -68,7 +69,7 @@ class GymboxBookingDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      Gap(20),
                       Row(
                         children: [
                           Text(
@@ -163,7 +164,7 @@ class GymboxBookingDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 26),
+                  Gap(26),
                   Text(
                     'Belt Details',
                     style: TextStyle(
@@ -172,13 +173,13 @@ class GymboxBookingDetails extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 13),
+                  Gap(13),
                   Container(
                     height: 60,
                     width: double.infinity,
                     child: Image.asset('assets/Gymbox_Images/belt.png'),
                   ),
-                  SizedBox(height: 10),
+                  Gap(10),
                   Row(
                     children: [
                       Text(
@@ -204,7 +205,7 @@ class GymboxBookingDetails extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  Gap(20),
                   Text(
                     'Customer Details',
                     style: TextStyle(
@@ -227,7 +228,7 @@ class GymboxBookingDetails extends StatelessWidget {
                       color: Colors.black54,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  Gap(20),
                   Row(
                     children: [
                       ShaderMask(
@@ -247,7 +248,7 @@ class GymboxBookingDetails extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      Gap(20),
                       ShaderMask(
                         shaderCallback: (bounds) {
                           return const LinearGradient(
@@ -270,7 +271,7 @@ class GymboxBookingDetails extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            Gap(20),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
               child: ElevatedButton(
