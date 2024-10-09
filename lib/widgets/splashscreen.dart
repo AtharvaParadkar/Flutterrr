@@ -25,8 +25,10 @@ class _SplashScreenState extends State<SplashScreen> {
         MaterialPageRoute(builder: (_) => const MyHomePage()),
       );
     });
-    auth = LocalAuthentication();
-    _authenticate();
+    Future.delayed(Duration(seconds: 5), () {
+      auth = LocalAuthentication();
+      _authenticate();
+    });
   }
 
   late final LocalAuthentication auth;
