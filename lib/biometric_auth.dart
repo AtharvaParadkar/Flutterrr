@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application/loginpage.dart';
+import 'package:flutter_application/home.dart';
 import 'package:local_auth/local_auth.dart';
 
 class BiometricAuth extends StatefulWidget {
@@ -62,7 +62,7 @@ class _BiometricAuthState extends State<BiometricAuth> {
       );
       print('Authenticated : $authenticated');
       if(authenticated){
-        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginPage()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>MyHomePage()));
       }
     } on PlatformException catch (c) {
       print(c);
