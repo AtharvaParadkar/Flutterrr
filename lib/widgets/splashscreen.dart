@@ -3,9 +3,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application/biometric_auth.dart';
 import 'package:flutter_application/home.dart';
 import 'package:flutter_application/loginpage.dart';
+import 'package:local_auth/local_auth.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,9 +22,28 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const BiometricAuth()),
+        MaterialPageRoute(builder: (_) => const MyHomePage()),
       );
     });
+    auth = LocalAuthentication();
+    _authenticate();
+  }
+
+  late final LocalAuthentication auth;
+
+  Future<void> _authenticate() async {
+    try {
+      bool authenticated = await auth.authenticate(
+        localizedReason: 'Please Authenticate Yourself',
+        options: AuthenticationOptions(
+          stickyAuth: true,
+          biometricOnly: false, //* Allows only biometrics no password/pin
+        ),
+      );
+      print('Authenticated : $authenticated');
+    } on PlatformException catch (c) {
+      print(c);
+    }
   }
 
   @override
