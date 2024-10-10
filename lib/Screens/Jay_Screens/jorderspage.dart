@@ -9,40 +9,39 @@ class JayOrdersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('My Orders'),
       ),
       body: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Container(
-                height: MediaQuery.of(context).size.height / 2,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.7,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                  ),
-                  itemCount: products.length,
-                  itemBuilder: (context, i) {
-                    Jaymodal model = products[i];
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (ctx) => ItemDetails(item: model)),
-                        );
-                      },
-                      child: ProductItems(
-                        product: products[i],
-                      ),
-                    );
-                  },
-                ),
-              ),
+        padding: const EdgeInsets.all(10),
+        child: Container(
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
             ),
+            itemCount: products.length,
+            itemBuilder: (context, i) {
+              Jaymodal model = products[i];
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (ctx) => ItemDetails(item: model)),
+                  );
+                },
+                child: ProductItems(
+                  product: products[i],
+                ),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }

@@ -60,13 +60,13 @@ final List<Jaymodal> products = [
   Jaymodal(
     ItemImageUrl: 'https://rukminim2.flixcart.com/image/850/1000/krf91u80/lock/v/o/q/stainless-steel-cylindrical-latch-door-lock-with-3-simple-keys-original-imag57x37s9hwhh2.jpeg?q=90&crop=false',
     ItemTitle: 'Steel Cylindrical Latch Door Lock',
-    ItmeClass: 'Door Lock',
+    ItmeClass: 'Door Locks',
     ItemPrice: 800,
   ),
   Jaymodal(
     ItemImageUrl: 'https://woodzon.com/wp-content/uploads/2022/10/WZSSIS007-1-jpg.webp',
     ItemTitle: 'SSikcon Door Lock Bolt',
-    ItmeClass: 'Door Lock',
+    ItmeClass: 'Door Locks',
     ItemPrice: 1289,
   ),
   Jaymodal(
@@ -74,11 +74,12 @@ final List<Jaymodal> products = [
     ItemTitle: 'Harrison Locks',
     ItmeClass: 'Door Locks',
     ItemPrice: 1979,
+    BestSeller: true,
   ),
   Jaymodal(
     ItemImageUrl: 'https://decomart.in/cdn/shop/files/sliding-door-lock.jpg?v=1718119116&width=2048',
     ItemTitle: 'Ebco Slidong Door Lock',
-    ItmeClass: 'Door Lock',
+    ItmeClass: 'Door Locks',
     ItemPrice: 800,
   ),
   Jaymodal(
@@ -104,6 +105,7 @@ final List<Jaymodal> products = [
     ItemTitle: 'Flush Car Door Handles',
     ItmeClass: 'Handles',
     ItemPrice: 1560,
+    BestSeller: true,
   ),
   Jaymodal(
     ItemImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMjc_mBdMrY0e2jq_eeZRjDtE4WMSvQm-OEQ&s',
@@ -122,6 +124,7 @@ final List<Jaymodal> products = [
     ItemTitle: 'BMW iX Flush Door Handle',
     ItmeClass: 'Handles',
     ItemPrice: 72000,
+    BestSeller: true,
   ),
   Jaymodal(
     ItemImageUrl: 'https://rukminim2.flixcart.com/image/400/400/xif0q/car-cradle/clip/a/n/n/igrip-telescopic-one-touch-amkette-original-imagqhhn9guzgyzc.jpeg?q=90&crop=false',

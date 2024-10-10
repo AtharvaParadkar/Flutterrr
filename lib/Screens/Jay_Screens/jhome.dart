@@ -13,10 +13,21 @@ class JayHomePage extends StatefulWidget {
 }
 
 class _JayHomePageState extends State<JayHomePage> {
-  
+  int _onSelectedCategory = 0;
+
   @override
   Widget build(BuildContext context) {
-    int _onSelectedCategory = 0;
+    // Determine the selected category
+    String selectedCategory = categories[_onSelectedCategory];
+
+    List<Jaymodal> _filteredProducts = _onSelectedCategory == 0
+        ? products
+        : products
+            .where((product) =>
+                product.ItmeClass ==
+                selectedCategory)
+            .toList();
+
     return Scaffold(
       appBar: AppBar(
         title: SizedBox(
@@ -138,30 +149,39 @@ class _JayHomePageState extends State<JayHomePage> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: Container(
-                height: MediaQuery.of(context).size.height / 2,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.7,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                  ),
-                  itemCount: products.length,
-                  itemBuilder: (context, i) {
-                    Jaymodal model = products[i];
-                    return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (ctx) => ItemDetails(item: model)),
-                      );
-                    },
-                    child: ProductItems(
-                      product: products[i],
-                    ),
-                  );
-                  },
-                ),
+                // height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height * 0.6,
+                child: _filteredProducts.isNotEmpty
+                    ? GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.7,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                        ),
+                        itemCount: _filteredProducts.length,
+                        itemBuilder: (context, i) {
+                          Jaymodal model = _filteredProducts[i];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => ItemDetails(item: model)),
+                              );
+                            },
+                            child: ProductItems(
+                              product: products[i],
+                            ),
+                          );
+                        },
+                      )
+                    : Center(
+                        child: Text(
+                          'No Products found in this Category.',
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                      ),
               ),
             ),
           ],
@@ -259,6 +279,9 @@ class ProductItems extends StatelessWidget {
                     product.ItemImageUrl,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Center(child: Icon(Icons.broken_image));
+                    },
                   ),
                 ),
               ),
