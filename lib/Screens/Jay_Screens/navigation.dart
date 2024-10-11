@@ -5,15 +5,24 @@ import 'package:flutter_application/Screens/Jay_Screens/jprofile.dart';
 import 'package:flutter_application/Screens/Jay_Screens/jrewards.dart';
 
 class Navigation extends StatefulWidget {
-  const Navigation({super.key});
+  const Navigation({super.key, this.initialPageIndex=0});
+
+  final int initialPageIndex;
 
   @override
   State<Navigation> createState() => _NavigationState();
 }
 
 class _NavigationState extends State<Navigation> {
-  PageController pagesController = PageController();
-  int selectedIndex=0;
+  late PageController pagesController = PageController();
+  late int selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedIndex = widget.initialPageIndex;
+    pagesController = PageController(initialPage: widget.initialPageIndex);
+  }
 
   void onTapped(int index){
     setState(() {

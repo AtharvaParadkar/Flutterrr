@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Screens/Jay_Screens/jprofile.dart';
+import 'package:flutter_application/Screens/Jay_Screens/navigation.dart';
 
 class AccountSettings extends StatefulWidget {
   const AccountSettings({super.key});
@@ -92,7 +92,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                             notificationSwitch = false;
                             Future.delayed(Duration(milliseconds: 500), () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (_) => JayProfilePage()));
+                                  builder: (_) => Navigation(initialPageIndex: 3)));
                             });
                           }
                         });

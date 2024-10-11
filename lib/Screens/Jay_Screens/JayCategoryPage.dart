@@ -131,12 +131,6 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
                           ),
                         ),
                       ),
-                      // CircleAvatar(
-                      //   maxRadius: 46,
-                      //   backgroundImage: NetworkImage(
-                      //     CProducts[i].CItemImageUrl,
-                      //   ),
-                      // ),
                       SizedBox(
                         height: 35,
                         width: 80,
