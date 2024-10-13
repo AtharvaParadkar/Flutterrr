@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/Jay_Screens/itemdetails.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jcategoryproductspage.dart';
 import 'package:flutter_application/data/jay_dummy_data.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
@@ -119,15 +120,18 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (ctx, i) => Column(
                     children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        margin: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(CProducts[i].CItemImageUrl),
-                            fit: BoxFit.cover,
+                      InkWell(
+                        onTap: () => Navigator.push(context,MaterialPageRoute(builder: (_)=> JayCategoryProductsPage())),
+                        child: Container(
+                          height: 80,
+                          width: 80,
+                          margin: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(CProducts[i].CItemImageUrl),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
