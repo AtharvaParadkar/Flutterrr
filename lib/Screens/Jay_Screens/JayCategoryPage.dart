@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/Jay_Screens/itemdetails.dart';
 import 'package:flutter_application/Screens/Jay_Screens/jcategoryproductspage.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jseeallproducts.dart';
 import 'package:flutter_application/data/jay_dummy_data.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
@@ -95,20 +96,23 @@ class _JayCategoryPageState extends State<JayCategoryPage> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              child: Row(
-                children: [
-                  Text(
-                    'Products & Services',
-                    style: TextStyle(fontSize: 17, color: Colors.black),
-                  ),
-                  Spacer(),
-                  Text(
-                    'See all',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                  SizedBox(width: 3),
-                  Icon(Icons.arrow_circle_right_outlined, size: 19)
-                ],
+              child: InkWell(
+                onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (_)=>AllProducts())),
+                child: Row(
+                  children: [
+                    Text(
+                      'Products & Services',
+                      style: TextStyle(fontSize: 17, color: Colors.black),
+                    ),
+                    Spacer(),
+                    Text(
+                      'See all',
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                    SizedBox(width: 3),
+                    Icon(Icons.arrow_circle_right_outlined, size: 19)
+                  ],
+                ),
               ),
             ),
             Padding(
