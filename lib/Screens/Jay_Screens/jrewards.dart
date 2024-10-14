@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgets/qrcodescanner.dart';
+import 'package:gap/gap.dart';
 
 class JayRewardsPage extends StatefulWidget {
   const JayRewardsPage({super.key});
@@ -27,12 +28,14 @@ class _JayRewardsPageState extends State<JayRewardsPage> {
         ],
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
+          Gap(30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SizedBox(
-              height: 250,
-              width: 290,
+              height: 130,
+              width: MediaQuery.sizeOf(context).width,
               child: Card(
                 elevation: 25,
                 shadowColor: Color.fromARGB(183, 255, 0, 0),
@@ -42,12 +45,13 @@ class _JayRewardsPageState extends State<JayRewardsPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Rewards',
-                        style: TextStyle(color: Colors.white, fontSize: 22),
+                        'Rewards Obtained',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
                       ),
+                      Gap(5),
                       Text(
-                        'Scan QR for Rewards 👇',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        '150 🟡 Obtained',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],
                   ),
@@ -55,7 +59,33 @@ class _JayRewardsPageState extends State<JayRewardsPage> {
               ),
             ),
           ),
-          SizedBox(height: 50),
+          // Center(
+          //   child: SizedBox(
+          //     height: 250,
+          //     width: 290,
+          //     child: Card(
+          //       elevation: 25,
+          //       shadowColor: Color.fromARGB(183, 255, 0, 0),
+          //       color: Color.fromARGB(255, 255, 0, 0),
+          //       child: Center(
+          //         child: Column(
+          //           mainAxisAlignment: MainAxisAlignment.center,
+          //           children: [
+          //             Text(
+          //               'Rewards',
+          //               style: TextStyle(color: Colors.white, fontSize: 22),
+          //             ),
+          //             Text(
+          //               'Scan QR for Rewards 👇',
+          //               style: TextStyle(color: Colors.white, fontSize: 14),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          Gap(160),
           InkWell(
             onTap: () => Navigator.push(
                 context, MaterialPageRoute(builder: (_) => QRCodeScanner())),
