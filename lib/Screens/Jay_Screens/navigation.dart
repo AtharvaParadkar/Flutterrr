@@ -27,15 +27,14 @@ class _NavigationState extends State<Navigation> {
   void onTapped(int index){
     setState(() {
       selectedIndex=index;
-      pagesController.jumpToPage(index);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: pagesController,
+      body: IndexedStack(
+        index: selectedIndex,
         children: [
           JayHomePage(),
           JayCategoryPage(),
