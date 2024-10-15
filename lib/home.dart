@@ -10,6 +10,7 @@ import 'package:flutter_application/widgets/drawer.dart';
 import 'package:flutter_application/widgets/grid.dart';
 import 'package:flutter_application/widgets/list.dart';
 import 'package:flutter_application/widgets/listview.dart';
+import 'package:flutter_application/widgets/media.dart';
 import 'package:flutter_application/widgets/progressbar.dart';
 import 'package:flutter_application/widgets/radio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -127,6 +128,13 @@ class _MyHomePageState extends State<MyHomePage> {
           //   'Drawer',
           //   () => _navigation(context, const MyDrawer()),
           // ),
+          const SizedBox(height: 10),
+          listtilewidget(
+            context,
+            'Media Player',
+            'Audio Video Player',
+            () => _navigation(context, const MediaPlayer()),
+          ),
         ],
       ),
     );
