@@ -1,16 +1,13 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:gap/gap.dart';
+import 'package:video_player/video_player.dart';
 
-class MediaPlayer extends StatefulWidget {
+class MediaPlayer extends StatelessWidget {
   const MediaPlayer({super.key});
 
-  @override
-  State<MediaPlayer> createState() => _MediaPlayerState();
-}
-
-class _MediaPlayerState extends State<MediaPlayer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +17,8 @@ class _MediaPlayerState extends State<MediaPlayer> {
         child: Column(
           children: [
             MusicPlayer(),
+            Gap(30),
+            VideoPlayerWidget(),
           ],
         ),
       ),
@@ -117,6 +116,41 @@ class _MusicPlayerState extends State<MusicPlayer> {
           icon: Icon(isAudioPlaying ? Icons.pause : Icons.play_arrow),
         ),
       ],
+    );
+  }
+}
+
+class VideoPlayerWidget extends StatefulWidget {
+  const VideoPlayerWidget({super.key});
+
+  @override
+  State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
+}
+
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late FlickManager flickManager;
+
+  @override
+  void initState() {
+    super.initState();
+    flickManager = FlickManager(
+      videoPlayerController: VideoPlayerController.networkUrl(
+        Uri.parse(
+            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    flickManager.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: FlickVideoPlayer(flickManager: flickManager),
     );
   }
 }
