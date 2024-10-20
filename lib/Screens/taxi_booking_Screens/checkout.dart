@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/taxi_booking_Screens/send_items.dart';
 import 'package:gap/gap.dart';
 
 class TaxiBookingCheckout extends StatefulWidget {
@@ -27,11 +28,10 @@ class _TaxiBookingCheckoutState extends State<TaxiBookingCheckout> {
             Icons.arrow_back,
             color: Color.fromARGB(255, 112, 112, 247),
           ),
-          style: ButtonStyle(
-            iconSize: WidgetStatePropertyAll(15),
-            minimumSize: WidgetStatePropertyAll(Size(15, 15)),
-            backgroundColor:
-                WidgetStatePropertyAll(Color.fromARGB(255, 0, 0, 255)),
+          style: IconButton.styleFrom(
+            iconSize: 20,
+            fixedSize: Size(15, 15),
+            backgroundColor: Color.fromARGB(255, 0, 0, 255),
           ),
         ),
       ),
@@ -165,27 +165,30 @@ class _TaxiBookingCheckoutState extends State<TaxiBookingCheckout> {
                       ),
                       Gap(10),
                       Expanded(
-                        child: Column(
-                          children: [
-                            LocationTile(
-                              "Pickup Location",
-                              "PLot no 20\nStreet 1\nPune",
-                              () {},
-                              false,
-                            ),
-                            LocationTile(
-                              "Drop Location",
-                              "PLot no 25\nStreet 2\nPune",
-                              () {},
-                              false,
-                            ),
-                            LocationTile(
-                              "Drop Location 2",
-                              "PLot no 5\nStreet 3\nPune",
-                              () {},
-                              true,
-                            ),
-                          ],
+                        child: InkWell(
+                          onTap: () => Navigator.push(context,MaterialPageRoute(builder: (_)=>SendItems())),
+                          child: Column(
+                            children: [
+                              LocationTile(
+                                "Pickup Location",
+                                "PLot no 20\nStreet 1\nPune",
+                                () {},
+                                false,
+                              ),
+                              LocationTile(
+                                "Drop Location",
+                                "PLot no 25\nStreet 2\nPune",
+                                () {},
+                                false,
+                              ),
+                              LocationTile(
+                                "Drop Location 2",
+                                "PLot no 5\nStreet 3\nPune",
+                                () {},
+                                true,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
