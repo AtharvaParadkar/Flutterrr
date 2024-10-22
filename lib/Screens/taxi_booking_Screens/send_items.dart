@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/taxi_booking_Screens/checkout.dart';
 import 'package:gap/gap.dart';
 
 class SendItems extends StatefulWidget {
@@ -350,7 +351,11 @@ class _SendItemsState extends State<SendItems> {
                     ),
                     Spacer(),
                     IconButton(
-                        onPressed: () {}, icon: Icon(Icons.chevron_right))
+                      onPressed: () {
+                        vehicleModalSheet();
+                      },
+                      icon: Icon(Icons.chevron_right),
+                    ),
                   ],
                 ),
               ),
@@ -446,23 +451,23 @@ class _SendItemsState extends State<SendItems> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           deliveryTime('09.00 AM TO 09.30 AM'),
-                          deliveryTime('09.00 AM TO 09.30 AM'),
+                          deliveryTime('11.00 AM TO 11.30 AM'),
                         ],
                       ),
                       Gap(15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          deliveryTime('09.00 AM TO 09.30 AM'),
-                          deliveryTime('09.00 AM TO 09.30 AM'),
+                          deliveryTime('01.00 AM TO 01.30 AM'),
+                          deliveryTime('03.00 AM TO 03.30 AM'),
                         ],
                       ),
                       Gap(15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          deliveryTime('09.00 AM TO 09.30 AM'),
-                          deliveryTime('09.00 AM TO 09.30 AM'),
+                          deliveryTime('05.00 AM TO 05.30 AM'),
+                          deliveryTime('07.00 AM TO 07.30 AM'),
                         ],
                       ),
                       Gap(15),
@@ -491,7 +496,8 @@ class _SendItemsState extends State<SendItems> {
                   fixedSize: Size(MediaQuery.sizeOf(context).width, 20),
                   elevation: 10,
                 ),
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => TaxiBookingCheckout())),
                 child: Text(
                   'Proceed to Checkout',
                   style: TextStyle(
@@ -536,25 +542,45 @@ class _SendItemsState extends State<SendItems> {
     );
   }
 
+  String? selectedTimeSlot;
   Widget deliveryTime(String dTime) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      width: MediaQuery.sizeOf(context).width / 2.45,
-      height: 40,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black26,
-              offset: Offset(0, -5),
-              blurRadius: 10,
-              spreadRadius: 1)
-        ],
+
+    bool isSelected = selectedTimeSlot==dTime;
+
+    return GestureDetector(
+      onTap: ()=>setState(() {
+        selectedTimeSlot=dTime;
+      }),
+      child: Container(
+        padding: EdgeInsets.all(8),
+        width: MediaQuery.sizeOf(context).width / 2.45,
+        height: 40,
+        decoration: BoxDecoration(
+          color: isSelected?Color.fromARGB(255, 136, 150, 247): Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black26,
+                offset: Offset(0, -5),
+                blurRadius: 10,
+                spreadRadius: 1)
+          ],
+        ),
+        child: Text(
+          dTime,
+          style: TextStyle(fontSize: 12),
+        ),
       ),
-      child: Text(
-        dTime,
-        style: TextStyle(fontSize: 12),
+    );
+  }
+
+  Future<void> vehicleModalSheet() {
+    return showModalBottomSheet(
+      context: context,
+      builder: (ctx) => Column(
+        children: [
+          Text('data'),
+        ],
       ),
     );
   }

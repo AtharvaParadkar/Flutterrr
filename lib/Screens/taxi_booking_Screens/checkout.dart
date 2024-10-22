@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/Screens/taxi_booking_Screens/send_items.dart';
 import 'package:gap/gap.dart';
 
 class TaxiBookingCheckout extends StatefulWidget {
@@ -165,30 +164,27 @@ class _TaxiBookingCheckoutState extends State<TaxiBookingCheckout> {
                       ),
                       Gap(10),
                       Expanded(
-                        child: InkWell(
-                          onTap: () => Navigator.push(context,MaterialPageRoute(builder: (_)=>SendItems())),
-                          child: Column(
-                            children: [
-                              LocationTile(
-                                "Pickup Location",
-                                "PLot no 20\nStreet 1\nPune",
-                                () {},
-                                false,
-                              ),
-                              LocationTile(
-                                "Drop Location",
-                                "PLot no 25\nStreet 2\nPune",
-                                () {},
-                                false,
-                              ),
-                              LocationTile(
-                                "Drop Location 2",
-                                "PLot no 5\nStreet 3\nPune",
-                                () {},
-                                true,
-                              ),
-                            ],
-                          ),
+                        child: Column(
+                          children: [
+                            LocationTile(
+                              "Pickup Location",
+                              "PLot no 20\nStreet 1\nPune",
+                              () {},
+                              false,
+                            ),
+                            LocationTile(
+                              "Drop Location",
+                              "PLot no 25\nStreet 2\nPune",
+                              () {},
+                              false,
+                            ),
+                            LocationTile(
+                              "Drop Location 2",
+                              "PLot no 5\nStreet 3\nPune",
+                              () {},
+                              true,
+                            ),
+                          ],
                         ),
                       ),
                     ],

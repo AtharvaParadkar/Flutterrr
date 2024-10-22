@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/GymBox_Screens/gymnavigation.dart';
 import 'package:flutter_application/Screens/Jay_Screens/navigation.dart';
-import 'package:flutter_application/Screens/taxi_booking_Screens/checkout.dart';
+import 'package:flutter_application/Screens/taxi_booking_Screens/send_items.dart';
 import 'package:flutter_application/loginpage.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -52,7 +52,7 @@ class MyDrawer extends StatelessWidget {
               title: Text('Gym Box UI'),
             ),
             ListTile(
-              onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TaxiBookingCheckout())),
+              onTap: () =>Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SendItems())),
               leading: Icon(Icons.home_outlined),
               title: Text('Taxi Booking UI'),
             ),
