@@ -24,6 +24,14 @@ class _JayNewAddressState extends State<JayNewAddress> {
           state = _stateController.text,
           pincode = _pincodeController.text;
 
+      String fullAddress = '$pfNo $society $city $state $pincode';
+      // Map<String, String> fullAddress = {
+      //   'pfNo': pfNo,
+      //   'society': society,
+      //   'city': city,
+      //   'state': state,
+      //   'pincode': pincode,
+      // };
       print('$pfNo $society $city $state $pincode');
 
       Fluttertoast.showToast(
@@ -36,7 +44,7 @@ class _JayNewAddressState extends State<JayNewAddress> {
         toastLength: Toast.LENGTH_LONG,
       );
 
-      Navigator.pop(context);
+      Navigator.pop(context, fullAddress);
     }
   }
 

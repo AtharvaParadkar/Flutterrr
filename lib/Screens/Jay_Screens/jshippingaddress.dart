@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/Jay_Screens/jnewaddress.dart';
 
-class JayShippingAddress extends StatelessWidget {
-  const JayShippingAddress({
-    super.key});
+class JayShippingAddress extends StatefulWidget {
+  const JayShippingAddress({super.key});
 
+  @override
+  State<JayShippingAddress> createState() => _JayShippingAddressState();
+}
+
+class _JayShippingAddressState extends State<JayShippingAddress> {
+  String? newAddress;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +19,7 @@ class JayShippingAddress extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 50,
@@ -29,12 +35,24 @@ class JayShippingAddress extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: ElevatedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => JayNewAddress())),
+                onPressed: () async {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => JayNewAddress(),
+                    ),
+                  );
+                  if (result != null) {
+                    setState(() {
+                      newAddress = result;
+                    });
+                  }
+                },
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
@@ -44,12 +62,25 @@ class JayShippingAddress extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            if (newAddress != null)
+              AddressWidget(
+                'Home',
+                'Salmiya',
+                newAddress!,
+              ),
             SizedBox(height: 40),
-            AddressWidget('Home', 'Salmiya',
-                'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital'),
+            AddressWidget(
+              'Home',
+              'Salmiya',
+              'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital',
+            ),
             SizedBox(height: 40),
-            AddressWidget('Home', 'Salmiya',
-                'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital'),
+            AddressWidget(
+              'Home',
+              'Salmiya',
+              'Block 10, Building 11, FLoor 1, Apartment 3 Near Al Rashid Hospital',
+            ),
             Card(
               elevation: 10,
               child: Column(
