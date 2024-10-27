@@ -171,7 +171,7 @@ class _JayHomePageState extends State<JayHomePage> {
                               );
                             },
                             child: ProductItems(
-                              product: products[i],
+                              product: _filteredProducts[i],
                             ),
                           );
                         },
