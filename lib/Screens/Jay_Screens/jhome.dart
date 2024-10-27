@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Screens/Jay_Screens/itemdetails.dart';
+import 'package:flutter_application/Screens/Jay_Screens/jcart.dart';
 import 'package:flutter_application/data/jay_dummy_data.dart';
 import 'package:flutter_application/modal/jaymodal.dart';
 
@@ -23,9 +24,7 @@ class _JayHomePageState extends State<JayHomePage> {
     List<Jaymodal> _filteredProducts = _onSelectedCategory == 0
         ? products
         : products
-            .where((product) =>
-                product.ItmeClass ==
-                selectedCategory)
+            .where((product) => product.ItmeClass == selectedCategory)
             .toList();
 
     return Scaffold(
@@ -41,7 +40,10 @@ class _JayHomePageState extends State<JayHomePage> {
           SizedBox(width: 20),
           Icon(Icons.favorite_border_rounded, size: 30),
           SizedBox(width: 20),
-          Icon(Icons.shopping_bag_outlined, size: 30),
+          InkWell(
+            onTap: ()=> Navigator.push(context,MaterialPageRoute(builder: (_)=>JayCart())),
+            child: Icon(Icons.shopping_bag_outlined, size: 30),
+          ),
           SizedBox(width: 20),
         ],
       ),

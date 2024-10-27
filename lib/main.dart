@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Screens/Jay_Screens/Provider/jcartProvider.dart';
 import 'package:flutter_application/widgets/splashscreen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CartProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
