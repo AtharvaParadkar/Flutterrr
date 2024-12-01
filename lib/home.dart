@@ -13,6 +13,7 @@ import 'package:flutter_application/widgets/listview.dart';
 import 'package:flutter_application/widgets/media.dart';
 import 'package:flutter_application/widgets/progressbar.dart';
 import 'package:flutter_application/widgets/radio.dart';
+import 'package:flutter_application/widgets/upi_animation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -49,93 +50,102 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: myappbar('Flutterrr'),
       drawer: MyDrawer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          listtilewidget(
-            context,
-            'List',
-            'List View',
-            () => _navigation(context, ListViewWidget()),
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Grid',
-            'Grid View',
-            () => _navigation(context, const GridViewWidget()),
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Toast',
-            'Press for Toast',
-            toastfunction,
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'ListView',
-            'List View using Modal Class',
-            () => _navigation(context, const ListviewModal()),
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'GymUI',
-            'Gym checkout ui',
-            () => _navigation(context, const GymUI()),
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Checkbox',
-            'Checkbox Button',
-            () => _navigation(context, const CheckboxButton()),
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Radio',
-            'Radio Button',
-            () => _navigation(context, const RadioButton()),
-          ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Animation',
-            'Animation Widgets',
-            () => _navigation(context, const AnimationWidget()),
-          ),
-          // const SizedBox(height: 10),
-          // listtilewidget(
-          //   context,
-          //   'Page Animation',
-          //   'Page Route Animation ',
-          //   () => _navigation(context, const PageRouteAnimation()),
-          // ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Progress Bar',
-            'Progress Bar Indicator',
-            () => _navigation(context, const ProgressBar()),
-          ),
-          // const SizedBox(height: 10),
-          // listtilewidget(
-          //   context,
-          //   'Drawer',
-          //   'Drawer',
-          //   () => _navigation(context, const MyDrawer()),
-          // ),
-          const SizedBox(height: 10),
-          listtilewidget(
-            context,
-            'Media Player',
-            'Audio Video Player',
-            () => _navigation(context, const MediaPlayer()),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            listtilewidget(
+              context,
+              'List',
+              'List View',
+              () => _navigation(context, ListViewWidget()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Grid',
+              'Grid View',
+              () => _navigation(context, const GridViewWidget()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Toast',
+              'Press for Toast',
+              toastfunction,
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'ListView',
+              'List View using Modal Class',
+              () => _navigation(context, const ListviewModal()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'GymUI',
+              'Gym checkout ui',
+              () => _navigation(context, const GymUI()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Checkbox',
+              'Checkbox Button',
+              () => _navigation(context, const CheckboxButton()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Radio',
+              'Radio Button',
+              () => _navigation(context, const RadioButton()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Animation',
+              'Animation Widgets',
+              () => _navigation(context, const AnimationWidget()),
+            ),
+            // const SizedBox(height: 10),
+            // listtilewidget(
+            //   context,
+            //   'Page Animation',
+            //   'Page Route Animation ',
+            //   () => _navigation(context, const PageRouteAnimation()),
+            // ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Progress Bar',
+              'Progress Bar Indicator',
+              () => _navigation(context, const ProgressBar()),
+            ),
+            // const SizedBox(height: 10),
+            // listtilewidget(
+            //   context,
+            //   'Drawer',
+            //   'Drawer',
+            //   () => _navigation(context, const MyDrawer()),
+            // ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Media Player',
+              'Audio Video Player',
+              () => _navigation(context, const MediaPlayer()),
+            ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Media Player',
+              'Audio Video Player',
+              () => _navigation(context, const UpiAnimation()),
+            ),
+          ],
+        ),
       ),
     );
   }
