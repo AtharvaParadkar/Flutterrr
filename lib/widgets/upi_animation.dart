@@ -1,5 +1,3 @@
-// https://lottie.host/466ac4ae-ff62-4279-be90-9c54e7b130e3/9ResoVNuhU.lottie
-// https://lottie.host/embed/466ac4ae-ff62-4279-be90-9c54e7b130e3/9ResoVNuhU.lottie
 import 'package:flutter/material.dart';
 import 'package:flutter_application/widgets/appbar.dart';
 import 'package:lottie/lottie.dart';
