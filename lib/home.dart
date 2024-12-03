@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application/widgets/animation/rotate_animation.dart';
 import 'package:flutter_application/widgets/animation/pagerouteanimation.dart';
 import 'package:flutter_application/gymui.dart';
 import 'package:flutter_application/widgets/animation/animation.dart';
@@ -109,6 +110,13 @@ class _MyHomePageState extends State<MyHomePage> {
               'Animation Widgets',
               () => _navigation(context, const AnimationWidget()),
             ),
+            const SizedBox(height: 10),
+            listtilewidget(
+              context,
+              'Animation',
+              'Animation Widgets 2',
+                  () => _navigation(context, const RotationAnimation()),
+            ),
             // const SizedBox(height: 10),
             // listtilewidget(
             //   context,
@@ -140,8 +148,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 10),
             listtilewidget(
               context,
-              'Media Player',
-              'Audio Video Player',
+              'Upi Animation',
+              'Gpay Success Animation',
               () => _navigation(context, const UpiAnimation()),
             ),
           ],
